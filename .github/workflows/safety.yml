@@ -2,11 +2,12 @@ name: Python safety check
 
 on:
   push:
-    branches:
-      - master
-
-env:
-  DEP_PATH: src/requirements.txt
+    branches: [ "master" ]
+  pull_request:
+    # The branches below must be a subset of the branches above
+    branches: [ "master" ]
+  schedule:
+    - cron: '39 3 * * 3'
 
 jobs:
   build:
