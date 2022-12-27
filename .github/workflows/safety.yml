@@ -1,0 +1,28 @@
+name: Python safety check
+
+on:
+  push:
+    branches:
+      - master
+
+env:
+  DEP_PATH: src/requirements.txt
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out master
+        uses: actions/checkout@master
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+          installer-parallel: true
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+      - name: Activate venv
+        run: |
+          source .venv/bin/activate
+          safety check
