@@ -10,7 +10,7 @@ on:
     - cron: '39 3 * * 3'
 
 jobs:
-  build:
+  safety:
     runs-on: ubuntu-latest
     steps:
       - name: Check out master
@@ -23,7 +23,7 @@ jobs:
           installer-parallel: true
       - name: Install dependencies
         run: poetry install --no-interaction --no-root
-      - name: Activate venv
+      - name: Safety check
         run: |
           source .venv/bin/activate
           safety check
