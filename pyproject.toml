@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "python-backend-skeleton"
+version = "0.1.0"
+description = "Starting point for Python backend with FastAPI and PostgreSQL"
+authors = ["Your Name <you@example.com>"]
+license = "WTFPL"
+readme = "README.md"
+packages = [{include = "python_backend_skeleton"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.88.0"
+uvicorn = "^0.20.0"
+tomli = "^2.0.1"
+
+
+[tool.poetry.group.dev.dependencies]
+doit = "^0.36.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
